@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.sarker.ereg.database.DBManager;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button addStudent,viewStudent;
-    private ProgressDialog progressDialog;
     private DBManager dbManager;
 
     @Override

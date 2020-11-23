@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.sarker.ereg.adapter.StudentAdapter;
+import com.sarker.ereg.database.DBManager;
 
 public class ViewStudentList extends AppCompatActivity {
 

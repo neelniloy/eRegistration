@@ -1,25 +1,21 @@
-package com.sarker.ereg;
+package com.sarker.ereg.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-
-import java.io.UnsupportedEncodingException;
+import com.sarker.ereg.R;
+import com.sarker.ereg.StudentDetails;
+import com.sarker.ereg.database.DatabaseHelper;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolder> {
     private Context sContext;
@@ -90,7 +86,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(sContext,StudentDetails.class);
+                Intent intent = new Intent(sContext, StudentDetails.class);
 
                 intent.putExtra("name",name);
                 intent.putExtra("id",id);

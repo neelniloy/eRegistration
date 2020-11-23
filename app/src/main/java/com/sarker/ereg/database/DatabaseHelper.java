@@ -1,4 +1,4 @@
-package com.sarker.ereg;
+package com.sarker.ereg.database;
 
 import android.content.Context;
 import android.database.SQLException;
