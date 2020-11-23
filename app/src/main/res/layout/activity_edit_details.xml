@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".EditDetails">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_back"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_add_new_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:text="Edit Details"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_add_new_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/l1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/student_picE"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/student_icon"
+                            android:layout_centerHorizontal="true"/>
+
+                        <ImageView
+                            android:id="@+id/edit_stu_picE"
+                            android:layout_marginStart="2dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toEndOf="@+id/student_picE"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_edit"/>
+
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/text_input_layoutE"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Semester"
+                        app:endIconMode="dropdown_menu"
+                        android:layout_marginBottom="10dp"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/semesterDropdownE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:paddingStart="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textCursorDrawable="@null" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/editTextNameLayoutE"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@color/colorWhite"
+                        android:hint="Student Name"
+                        app:endIconMode="clear_text"
+                        android:layout_marginBottom="10dp"
+                        app:startIconTint="#00A650"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_student_nameE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/editTextRollLayoutE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:boxBackgroundColor="@color/colorWhite"
+                        android:hint="Student ID"
+                        app:endIconMode="clear_text"
+                        android:layout_marginBottom="10dp"
+                        app:startIconTint="#00A650"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_rollE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_layout1E"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Section"
+                        app:endIconMode="dropdown_menu"
+                        android:layout_marginBottom="10dp"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/sectionDropdownE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:paddingStart="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textCursorDrawable="@null" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Registered Courses"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/add_check_boxE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Registration Status"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:textSize="15dp"
+                                android:id="@+id/inProgress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="In Progresses"
+                                android:textStyle="bold"
+                                android:textColor="#F88E0C" />
+
+                            <RadioButton
+                                android:textSize="15dp"
+                                android:id="@+id/completed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Completed"
+                                android:textStyle="bold"
+                                android:textColor="#19A119" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <Button
+                android:layout_marginBottom="25dp"
+                android:layout_gravity="center"
+                android:id="@+id/btn_add_studentE"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Update"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:background="@drawable/custom_button"
+                android:elevation="25dp"
+                android:textAllCaps="false"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
