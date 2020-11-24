@@ -71,7 +71,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             holder.Pic.setImageBitmap(BitmapFactory.decodeByteArray(img,0,img.length));
         }
 
-        holder.Name.setText(name);
+        if (name.length()>20){
+            holder.Name.setText(name.substring(0,19)+".");
+        }else {
+            holder.Name.setText(name);
+        }
+
+
         holder.ID.setText(id);
         holder.Date.setText(date);
 

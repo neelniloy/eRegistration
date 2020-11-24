@@ -324,7 +324,7 @@ public class AddStudent extends AppCompatActivity {
         if (bitmap!=null){
 
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
             img= stream.toByteArray();
 
         }
