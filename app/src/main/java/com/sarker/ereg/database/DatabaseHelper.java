@@ -15,6 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Table columns
     public static final String _ID = "_id";
     public static final String SEMESTER = "semester";
+    public static final String DEPARTMENT = "department";
     public static final String NAME = "name";
     public static final String SID = "sID";
     public static final String SECTION = "section";
@@ -33,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Creating table query
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SEMESTER + " TEXT , " + NAME+ " TEXT,  " + SID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SEMESTER + " TEXT, " + DEPARTMENT + " TEXT , " + NAME+ " TEXT,  " + SID
             + " TEXT,  " + SECTION + " TEXT,  " + COURSE + " TEXT,  " + STATUS + " TEXT,  " + DATE + " TEXT,  " + TIME + " TEXT,  " + IMAGE + " BLOB);";
 
     private Context context;

@@ -47,10 +47,10 @@ public class AddStudent extends AppCompatActivity {
     private ImageView back,edit;
     private CircleImageView stuPic;
     private TextInputEditText Name, roll;
-    private TextInputLayout semesterTextLayout,nameEditTextLayout, rollEditTextLayout;
+    private TextInputLayout semesterTextLayout,deptTextLayout,nameEditTextLayout, rollEditTextLayout;
     private Button btnAdd;
     private ProgressDialog progressDialog;
-    private String user_id,status="",semester = " ", section= " ",takenCourse = " ";
+    private String user_id,status="",semester = " ", section= " ",takenCourse = " ",dept = " ";
     private LinearLayout linearLayout;
     private RadioButton inProgress, completed;
     private DBManager dbManager;
@@ -89,6 +89,7 @@ public class AddStudent extends AppCompatActivity {
         linearLayout = findViewById(R.id.add_check_box);
 
         semesterTextLayout = findViewById(R.id.text_input_layout);
+        deptTextLayout = findViewById(R.id.text_input_layout3);
         nameEditTextLayout = findViewById(R.id.editTextNameLayout);
         rollEditTextLayout = findViewById(R.id.editTextRollLayout);
 
@@ -98,7 +99,7 @@ public class AddStudent extends AppCompatActivity {
 
 
 
-        String[] Dept = new String[] {"Spring 2021", "Summer 2021", "Fall 2021"};
+        String[] Sem = new String[] {"Spring 2021", "Summer 2021", "Fall 2021"};
 
         final AutoCompleteTextView dropdown = findViewById(R.id.semesterDropdown);
 
@@ -106,7 +107,7 @@ public class AddStudent extends AppCompatActivity {
                 new ArrayAdapter<String>(
                         this,
                         R.layout.support_simple_spinner_dropdown_item,
-                        Dept);
+                        Sem);
         dropdown.setAdapter(adapter);
 
 
@@ -121,16 +122,16 @@ public class AddStudent extends AppCompatActivity {
                 linearLayout.removeAllViews();
 
                 if (semester.equals("Spring 2021")){
-                    S = new String[] {"CSE233:Object Oriented Programming II","CSE234:Object Oriented Programming II Lab","CSE231:Microprocessor, Embedded Systems and IoT", "CSE232:Microprocessor, Embedded Systems and IoT Lab", "CSE235:Numerical Methods","CSE236:Math for Computer Science","CSE237:Software Project IV"};
+                    S = new String[] {"CSE311:Database Management System","CSE312:Database Management System Lab","CSE313:Computer Networks", "CSE314:Computer Networks Lab", "CSE315:Artificial Intelligence", "CSE316:Artificial Intelligence Lab","CSE317:Software Project V"};
                      len = S.length;
                 }
                 else if (semester.equals("Summer 2021")){
-//                    S = new String[] {"CSE233:Object Oriented Programming II","CSE234:Object Oriented Programming II Lab","CSE231:Microprocessor, Embedded Systems and IoT", "CSE232:Microprocessor, Embedded Systems and IoT Lab", "CSE235:Numerical Methods","CSE236:Math for Computer Science","CSE237:Software Project IV"};
-//                    len = S.length;
+                    S = new String[] {"CSE321:Data Mining and Machine Learning","CSE322:Data Mining and Machine Learning Lab","CSE323:Operating Systems", "CSE324:Operating Systems Lab", "CSE325:System Analysis and Design","ECO321:Economics","CSE326:Research and Innovation in CSE"};
+                    len = S.length;
                 }
                 else if (semester.equals("Fall 2021")){
-//                    S = new String[] {"CSE233:Object Oriented Programming II","CSE234:Object Oriented Programming II Lab","CSE231:Microprocessor, Embedded Systems and IoT", "CSE232:Microprocessor, Embedded Systems and IoT Lab", "CSE235:Numerical Methods","CSE236:Math for Computer Science","CSE237:Software Project IV"};
-//                    len = S.length;
+                    S = new String[] {"CSE331:Complier Design","CSE332:Complier Design Lab","CCSE333:Software Engineering", "CSE334:Pervasive Computing","CSE335:Pervasive Computing and Mobile App Development Lab","CSE336:Software Project VI"};
+                    len = S.length;
                 }
 
                 for (int i = 0; i < len; i++) {
@@ -190,6 +191,27 @@ public class AddStudent extends AppCompatActivity {
         });
 
 
+        String[] Dept = new String[] {"Computer Science & Engineering"};
+
+        final AutoCompleteTextView dropdown3 = findViewById(R.id.deptDropdown);
+
+        final ArrayAdapter<String> adapter3 =
+                new ArrayAdapter<String>(
+                        this,
+                        R.layout.support_simple_spinner_dropdown_item,
+                        Dept);
+        dropdown3.setAdapter(adapter3);
+
+
+        dropdown3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                dept = adapter3.getItem(position);
+
+            }
+        });
+
+
 
 
         edit.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +240,11 @@ public class AddStudent extends AppCompatActivity {
                 if (semester.equals(" ")) {
                     semesterTextLayout.setError("*Semester required");
                     dropdown.requestFocus();
+
+                }
+                else if (dept.equals(" ")) {
+                    deptTextLayout.setError("*Department required");
+                    dropdown3.requestFocus();
 
                 }else if (name.isEmpty()) {
                     nameEditTextLayout.setError("*Name required");
@@ -304,14 +331,14 @@ public class AddStudent extends AppCompatActivity {
 
 
 
-        dbManager.insert(semester,name, id,section,takenCourse,status,saveCurrentDate,saveCurrentTime,img);
+        dbManager.insert(semester,dept,name, id,section,takenCourse,status,saveCurrentDate,saveCurrentTime,img);
 
 
         progressDialog.dismiss();
         Toast.makeText(AddStudent.this, "Details Successfully Added", Toast.LENGTH_SHORT).show();
 
         startActivity(new Intent(AddStudent.this, MainActivity.class));
-        finish();
+        finishAffinity();
 
 
     }

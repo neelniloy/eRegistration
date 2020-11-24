@@ -20,6 +20,7 @@ import com.sarker.ereg.database.DatabaseHelper;
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolder> {
     private Context sContext;
     private Cursor sCursor;
+
     public StudentAdapter(Context context, Cursor cursor) {
         sContext = context;
         sCursor = cursor;
@@ -57,6 +58,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         final String sec = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.SECTION));
         final String course = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.COURSE));
         final String sem = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.SEMESTER));
+        final String dept = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.DEPARTMENT));
         final String time = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.TIME));
         final String date = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.DATE));
         final String status = sCursor.getString(sCursor.getColumnIndex(DatabaseHelper.STATUS));
@@ -91,6 +93,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                 intent.putExtra("name",name);
                 intent.putExtra("id",id);
                 intent.putExtra("semester",sem);
+                intent.putExtra("dept",dept);
                 intent.putExtra("sec",sec);
                 intent.putExtra("course",course);
                 intent.putExtra("time",time);
@@ -110,6 +113,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     public int getItemCount() {
         return sCursor.getCount();
     }
+
     public void swapCursor(Cursor newCursor) {
         if (sCursor != null) {
             sCursor.close();

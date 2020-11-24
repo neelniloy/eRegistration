@@ -28,11 +28,12 @@ public class DBManager {
         dbHelper.close();
     }
 
-    public void insert(String semester,String name, String sID, String sec, String course, String status, String date,String time, byte[] img) {
+    public void insert(String semester,String dept,String name, String sID, String sec, String course, String status, String date,String time, byte[] img) {
 
         ContentValues contentValue = new ContentValues();
 
         contentValue.put(DatabaseHelper.SEMESTER, semester);
+        contentValue.put(DatabaseHelper.DEPARTMENT, dept);
         contentValue.put(DatabaseHelper.NAME, name);
         contentValue.put(DatabaseHelper.SID, sID);
         contentValue.put(DatabaseHelper.SECTION, sec);
@@ -48,7 +49,8 @@ public class DBManager {
 
     public Cursor fetch() {
 
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.NAME, DatabaseHelper.SID,DatabaseHelper.DATE, DatabaseHelper.STATUS,DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE,DatabaseHelper.TIME,DatabaseHelper.IMAGE };
+        String[] columns = new String[] { DatabaseHelper._ID,DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID,DatabaseHelper.DATE, DatabaseHelper.STATUS,DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE,DatabaseHelper.TIME,DatabaseHelper.IMAGE };
+
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -57,11 +59,12 @@ public class DBManager {
 
     }
 
-    public int update(long _id, String semester,String name, String sID, String sec, String course, String status, String date,String time,byte[] img) {
+    public int update(long _id, String semester,String dept,String name, String sID, String sec, String course, String status, String date,String time,byte[] img) {
 
         ContentValues contentValue = new ContentValues();
 
         contentValue.put(DatabaseHelper.SEMESTER, semester);
+        contentValue.put(DatabaseHelper.DEPARTMENT, dept);
         contentValue.put(DatabaseHelper.NAME, name);
         contentValue.put(DatabaseHelper.SID, sID);
         contentValue.put(DatabaseHelper.SECTION, sec);
@@ -85,7 +88,7 @@ public class DBManager {
 
     public Cursor SearchData(String search){
 
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.NAME, DatabaseHelper.SID,DatabaseHelper.DATE, DatabaseHelper.STATUS,DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE,DatabaseHelper.TIME,DatabaseHelper.IMAGE };
+        String[] columns = new String[] { DatabaseHelper._ID,DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID,DatabaseHelper.DATE, DatabaseHelper.STATUS,DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE,DatabaseHelper.TIME,DatabaseHelper.IMAGE };
 
 
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,

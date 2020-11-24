@@ -24,9 +24,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class StudentDetails extends AppCompatActivity {
 
 
-    private String semester,name,id,sec,course,status,date,time,key;
+    private String semester,name,id,sec,course,status,date,time,key,dept;
     private ImageView back,edit;
-    private TextView Semester,Name,Id,Sec,Course,Status,Date,Time;
+    private TextView Semester,Name,Id,Sec,Course,Status,Date,Time,Dept;
     private CircleImageView Pic;
     private byte [] img;
 
@@ -38,6 +38,7 @@ public class StudentDetails extends AppCompatActivity {
         setContentView(R.layout.activity_student_details);
 
         semester = getIntent().getStringExtra("semester");
+        dept = getIntent().getStringExtra("dept");
         name = getIntent().getStringExtra("name");
         id = getIntent().getStringExtra("id");
         sec = getIntent().getStringExtra("sec");
@@ -60,7 +61,10 @@ public class StudentDetails extends AppCompatActivity {
         Course = findViewById(R.id.stu_course);
         edit = findViewById(R.id.edit);
         Pic = findViewById(R.id.student_profile);
+        Dept = findViewById(R.id.stu_dept);
+
         Semester.setText(semester);
+        Dept.setText(dept);
         Name.setText(name);
         Id.setText(id);
         Sec.setText(sec);
@@ -84,6 +88,7 @@ public class StudentDetails extends AppCompatActivity {
                 intent.putExtra("name",name);
                 intent.putExtra("id",id);
                 intent.putExtra("semester",semester);
+                intent.putExtra("dept",dept);
                 intent.putExtra("sec",sec);
                 intent.putExtra("course",course);
                 intent.putExtra("time",time);

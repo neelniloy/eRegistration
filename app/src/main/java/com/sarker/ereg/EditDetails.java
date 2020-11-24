@@ -49,7 +49,7 @@ public class EditDetails extends AppCompatActivity {
     private ImageView back,edit;
     private CircleImageView stuPic;
     private TextInputEditText Name, roll;
-    private TextInputLayout semesterTextLayout,nameEditTextLayout, rollEditTextLayout;
+    private TextInputLayout semesterTextLayout,deptTextLayout,nameEditTextLayout, rollEditTextLayout;
     private Button btnAdd;
     private ProgressDialog progressDialog;
     private String user_id,takenCourse = " ";
@@ -66,6 +66,7 @@ public class EditDetails extends AppCompatActivity {
     private String status;
     private String date;
     private String time;
+    private String dept;
     private long key;
     private byte[] img;
     private Bitmap bitmap = null;
@@ -79,6 +80,7 @@ public class EditDetails extends AppCompatActivity {
         setContentView(R.layout.activity_edit_details);
 
         semester = getIntent().getStringExtra("semester");
+        dept = getIntent().getStringExtra("dept");
         name = getIntent().getStringExtra("name");
         id = getIntent().getStringExtra("id");
         section = getIntent().getStringExtra("sec");
@@ -110,6 +112,7 @@ public class EditDetails extends AppCompatActivity {
         linearLayout = findViewById(R.id.add_check_boxE);
 
         semesterTextLayout = findViewById(R.id.text_input_layoutE);
+        deptTextLayout = findViewById(R.id.text_input_layout3E);
         nameEditTextLayout = findViewById(R.id.editTextNameLayoutE);
         rollEditTextLayout = findViewById(R.id.editTextRollLayoutE);
 
@@ -181,6 +184,27 @@ public class EditDetails extends AppCompatActivity {
             }
         });
 
+        String[] Dept = new String[] {"Computer Science & Engineering"};
+
+        final AutoCompleteTextView dropdown3 = findViewById(R.id.deptDropdownE);
+
+        final ArrayAdapter<String> adapter3 =
+                new ArrayAdapter<String>(
+                        this,
+                        R.layout.support_simple_spinner_dropdown_item,
+                        Dept);
+        dropdown3.setAdapter(adapter3);
+        dropdown3.setText(dept,true);
+
+
+        dropdown3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                dept = adapter3.getItem(position);
+
+            }
+        });
+
 
 
 
@@ -210,6 +234,11 @@ public class EditDetails extends AppCompatActivity {
                 if (semester.equals(" ")) {
                     semesterTextLayout.setError("*Semester required");
                     dropdown.requestFocus();
+
+                }
+                else if (dept.equals(" ")) {
+                    deptTextLayout.setError("*Department required");
+                    dropdown3.requestFocus();
 
                 }else if (name.isEmpty()) {
                     nameEditTextLayout.setError("*Name required");
@@ -265,16 +294,16 @@ public class EditDetails extends AppCompatActivity {
         linearLayout.removeAllViews();
 
         if (semester.equals("Spring 2021")){
-            S = new String[] {"CSE233:Object Oriented Programming II","CSE234:Object Oriented Programming II Lab","CSE231:Microprocessor, Embedded Systems and IoT", "CSE232:Microprocessor, Embedded Systems and IoT Lab", "CSE235:Numerical Methods","CSE236:Math for Computer Science","CSE237:Software Project IV"};
+            S = new String[] {"CSE311:Database Management System","CSE312:Database Management System Lab","CSE313:Computer Networks", "CSE314:Computer Networks Lab", "CSE315:Artificial Intelligence", "CSE316:Artificial Intelligence Lab","CSE317:Software Project V"};
             len = S.length;
         }
         else if (semester.equals("Summer 2021")){
-//                    S = new String[] {"CSE233:Object Oriented Programming II","CSE234:Object Oriented Programming II Lab","CSE231:Microprocessor, Embedded Systems and IoT", "CSE232:Microprocessor, Embedded Systems and IoT Lab", "CSE235:Numerical Methods","CSE236:Math for Computer Science","CSE237:Software Project IV"};
-//                    len = S.length;
+            S = new String[] {"CSE321:Data Mining and Machine Learning","CSE322:Data Mining and Machine Learning Lab","CSE323:Operating Systems", "CSE324:Operating Systems Lab", "CSE325:System Analysis and Design","ECO321:Economics","CSE326:Research and Innovation in CSE"};
+            len = S.length;
         }
         else if (semester.equals("Fall 2021")){
-//                    S = new String[] {"CSE233:Object Oriented Programming II","CSE234:Object Oriented Programming II Lab","CSE231:Microprocessor, Embedded Systems and IoT", "CSE232:Microprocessor, Embedded Systems and IoT Lab", "CSE235:Numerical Methods","CSE236:Math for Computer Science","CSE237:Software Project IV"};
-//                    len = S.length;
+            S = new String[] {"CSE331:Complier Design","CSE332:Complier Design Lab","CCSE333:Software Engineering", "CSE334:Pervasive Computing","CSE335:Pervasive Computing and Mobile App Development Lab","CSE336:Software Project VI"};
+            len = S.length;
         }
 
         String[] arr = course1.trim().split("\n");
@@ -361,14 +390,14 @@ public class EditDetails extends AppCompatActivity {
 
 
 
-        dbManager.update(key,semester,name, id,section,takenCourse,status,saveCurrentDate,saveCurrentTime,img);
+        dbManager.update(key,semester,dept,name, id,section,takenCourse,status,saveCurrentDate,saveCurrentTime,img);
 
 
         progressDialog.dismiss();
         Toast.makeText(EditDetails.this, "Details Successfully Updated", Toast.LENGTH_SHORT).show();
 
         startActivity(new Intent(EditDetails.this, MainActivity.class));
-        finish();
+        finishAffinity();
 
 
     }

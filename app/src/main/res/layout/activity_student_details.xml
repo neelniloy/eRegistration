@@ -29,247 +29,306 @@
         android:textSize="22sp"
         android:textStyle="bold"/>
 
-    <ImageView
-        android:layout_marginEnd="25dp"
-        android:layout_alignParentRight="true"
-        android:id="@+id/edit"
-        android:layout_centerHorizontal="true"
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/tv_add_new_student"
-        android:layout_marginTop="15dp"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/ic_edit" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/student_profile"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:src="@drawable/student_icon"
-        app:civ_border_width=".5dp"
-        app:civ_border_color="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"/>
-
-    <TextView
-        android:id="@+id/stu_name"
-        android:textAlignment="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:text="Full Name"
-        android:layout_below="@+id/student_profile"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"/>
-
-    <TextView
-        android:id="@+id/stu_id"
-        android:textAlignment="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#636567"
-        android:text="Student Id"
-        android:layout_below="@+id/stu_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp"/>
-
-
-
-    <LinearLayout
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/stu_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_marginStart="5dp"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Registered Semester : "
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:id="@+id/stu_sem"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Semester"
-                android:layout_marginTop="16dp"/>
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginEnd="25dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/edit"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_edit" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/student_profile"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/student_icon"
+                    app:civ_border_width=".5dp"
+                    app:civ_border_color="@color/colorPrimary"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"/>
+
+                <TextView
+                    android:id="@+id/stu_name"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Full Name"
+                    android:layout_below="@+id/student_profile"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/stu_id"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#636567"
+                    android:text="Student Id"
+                    android:layout_below="@+id/stu_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"/>
+
+
+
+                <LinearLayout
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@+id/stu_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Registered Semester : "
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_sem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Semester"
+                            android:layout_marginTop="16dp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Registered Department : "
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_dept"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Department"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Registered Section : "
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_sec"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Section"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Registration Time : "
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_time"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Time"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Registration Date : "
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_date"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Date"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Registration Status : "
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_status"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Status"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="@string/reg_course"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"/>
+
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/stu_course"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Courses"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
 
-            <TextView
-                android:layout_marginStart="5dp"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Registered Section : "
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"/>
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:id="@+id/stu_sec"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Section"
-                android:layout_marginTop="5dp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Registration Time : "
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"/>
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:id="@+id/stu_time"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Time"
-                android:layout_marginTop="5dp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Registration Date : "
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"/>
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:id="@+id/stu_date"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Date"
-                android:layout_marginTop="5dp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Registration Status : "
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"/>
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:id="@+id/stu_status"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Status"
-                android:layout_marginTop="5dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:textAlignment="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="@string/reg_course"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
-
-            <TextView
-                android:layout_marginStart="5dp"
-                android:id="@+id/stu_course"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Courses"
-                android:layout_marginTop="10dp"/>
-
-        </LinearLayout>
+    </ScrollView>
 
 
 
 
 
-    </LinearLayout>
 
 
 
