@@ -164,7 +164,7 @@ public class EditDetails extends AppCompatActivity {
         });
 
 
-        String[] Sec = new String[] {"O-1", "O-2", "O-3","O-4", "O-5", "O-6","O-7", "O-8", "O-9","O-10", "O-11", "O-12","O-13", "O-14", "O-15"};
+        String[] Sec = new String[] {"A", "B", "C","D", "E", "F","G", "H", "I","J", "K", "L","M", "N", "O"};
 
         final AutoCompleteTextView dropdown1 = findViewById(R.id.sectionDropdownE);
 
