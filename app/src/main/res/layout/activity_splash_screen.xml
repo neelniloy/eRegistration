@@ -18,10 +18,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/reg_icon"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/sonsie_one"
+        android:fontFamily="@font/audiowide"
         android:text="eRegistration"
         android:textColor="@color/colorPrimary"
         android:textSize="34sp"
@@ -35,7 +35,7 @@
             android:id="@+id/tv_splash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Initiative by Brainer"
+            android:text="Initiative by Braineer"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.ParseException;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sarker.ereg.database.DBManager;
@@ -170,7 +172,7 @@ public class AddStudent extends AppCompatActivity {
         });
 
 
-        String[] Sec = new String[] {"O-1", "O-2", "O-3","O-4", "O-5", "O-6","O-7", "O-8", "O-9","O-10", "O-11", "O-12","O-13", "O-14", "O-15"};
+        String[] Sec = new String[] {"A", "B", "C","D", "E", "F","G", "H", "I","J", "K", "L","M", "N", "O"};
 
         final AutoCompleteTextView dropdown1 = findViewById(R.id.sectionDropdown);
 
@@ -234,7 +236,7 @@ public class AddStudent extends AppCompatActivity {
 
 
                 String name = Name.getText().toString();
-                String id = roll.getText().toString();
+                final String id = roll.getText().toString();
 
 
                 if (semester.equals(" ")) {
@@ -274,7 +276,14 @@ public class AddStudent extends AppCompatActivity {
 
                             progressDialog.dismiss();
 
-                            sendUserData();
+                            if(dbManager.checkAlreadyExist(id)){
+                                sendUserData();
+                            }else{
+
+                                Snackbar.make(findViewById(android.R.id.content), "Student already has been Registered", 1500).show();
+
+                            }
+
 
                         }
                     },1500);
@@ -335,7 +344,7 @@ public class AddStudent extends AppCompatActivity {
 
 
         progressDialog.dismiss();
-        Toast.makeText(AddStudent.this, "Details Successfully Added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddStudent.this, "Student has been Registered", Toast.LENGTH_SHORT).show();
 
         startActivity(new Intent(AddStudent.this, MainActivity.class));
         finishAffinity();
@@ -435,5 +444,7 @@ public class AddStudent extends AppCompatActivity {
 
         }
     }
+
+
 
 }

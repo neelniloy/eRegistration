@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sarker.ereg.database.DBManager;
@@ -228,7 +229,7 @@ public class EditDetails extends AppCompatActivity {
 
 
                 String name = Name.getText().toString();
-                String id = roll.getText().toString();
+                final String id = roll.getText().toString();
 
 
                 if (semester.equals(" ")) {
@@ -268,7 +269,8 @@ public class EditDetails extends AppCompatActivity {
 
                             progressDialog.dismiss();
 
-                            sendUserData();
+                                sendUserData();
+
 
                         }
                     },1500);
@@ -394,7 +396,7 @@ public class EditDetails extends AppCompatActivity {
 
 
         progressDialog.dismiss();
-        Toast.makeText(EditDetails.this, "Details Successfully Updated", Toast.LENGTH_SHORT).show();
+        Toast.makeText(EditDetails.this, "Student Details has been Updated", Toast.LENGTH_SHORT).show();
 
         startActivity(new Intent(EditDetails.this, MainActivity.class));
         finishAffinity();

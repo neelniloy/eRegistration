@@ -28,7 +28,7 @@ public class DBManager {
         dbHelper.close();
     }
 
-    public void insert(String semester,String dept,String name, String sID, String sec, String course, String status, String date,String time, byte[] img) {
+    public void insert(String semester, String dept, String name, String sID, String sec, String course, String status, String date, String time, byte[] img) {
 
         ContentValues contentValue = new ContentValues();
 
@@ -49,9 +49,9 @@ public class DBManager {
 
     public Cursor fetch() {
 
-        String[] columns = new String[] { DatabaseHelper._ID,DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID,DatabaseHelper.DATE, DatabaseHelper.STATUS,DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE,DatabaseHelper.TIME,DatabaseHelper.IMAGE };
+        String[] columns = new String[]{DatabaseHelper._ID, DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID, DatabaseHelper.DATE, DatabaseHelper.STATUS, DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE, DatabaseHelper.TIME, DatabaseHelper.IMAGE};
 
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, DatabaseHelper.SID);
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -59,7 +59,7 @@ public class DBManager {
 
     }
 
-    public int update(long _id, String semester,String dept,String name, String sID, String sec, String course, String status, String date,String time,byte[] img) {
+    public int update(long _id, String semester, String dept, String name, String sID, String sec, String course, String status, String date, String time, byte[] img) {
 
         ContentValues contentValue = new ContentValues();
 
@@ -86,15 +86,34 @@ public class DBManager {
 
     }
 
-    public Cursor SearchData(String search){
+    public Cursor SearchData(String search) {
 
-        String[] columns = new String[] { DatabaseHelper._ID,DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID,DatabaseHelper.DATE, DatabaseHelper.STATUS,DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE,DatabaseHelper.TIME,DatabaseHelper.IMAGE };
+        String[] columns = new String[]{DatabaseHelper._ID, DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID, DatabaseHelper.DATE, DatabaseHelper.STATUS, DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE, DatabaseHelper.TIME, DatabaseHelper.IMAGE};
 
 
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,
-                DatabaseHelper.SID + " LIKE '%"+search+"%'" ,
-                null, null, null,null );
+                DatabaseHelper.SID + " LIKE '%" + search + "%'",
+                null, null, null, null);
         return cursor;
+
+    }
+
+    public boolean checkAlreadyExist(String id)
+    {
+
+        String[] columns = new String[]{DatabaseHelper._ID, DatabaseHelper.DEPARTMENT, DatabaseHelper.NAME, DatabaseHelper.SID, DatabaseHelper.DATE, DatabaseHelper.STATUS, DatabaseHelper.SEMESTER, DatabaseHelper.SECTION, DatabaseHelper.COURSE, DatabaseHelper.TIME, DatabaseHelper.IMAGE};
+
+
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns,
+                DatabaseHelper.SID + " LIKE '%" + id + "%'",
+                null, null, null, null);
+        if (cursor.getCount() > 0)
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
 
     }
 
